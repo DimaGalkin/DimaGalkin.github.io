@@ -1,18 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     background-color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
-    color: #333;
 }
 
 .bar {
-    background-color: #333;
-    color: #fff;
+    display: flex;
     padding: 10px;
-    text-align: center;
-    font-size: large;
+    
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+
+    height: 2rem;
+
+    padding-top: 1rem;
+}
+
+.bardivs {
+    background-color: #918f8f;
+    color: #333;
+    font-weight: bolder;
+    font-size: 1.2rem;
+
+    margin: 5rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    border-radius: 2px;
+}
+
+a {
+    text-decoration: none;
 }
