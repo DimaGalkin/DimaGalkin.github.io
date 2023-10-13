@@ -3,43 +3,169 @@
 html, body {
     height: 100%;
     width: 100%;
+
     margin: 0;
     padding: 0;
+
     background-color: #fff;
+    
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: 0.85rem;
 }
 
-.bar {
+.container {
+    position: absolute;
+    z-index: 100;
+    display: grid;
+
+    grid-template-rows: 1fr 6fr;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+}
+
+.navbar {
+    display: grid;
+
+    background-color: #E7E247;
+
+    border-radius: 0.2rem;
+
+    grid-template-columns: 1fr 3fr;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hi {
     display: flex;
-    padding: 10px;
-    
+
     align-items: center;
     justify-content: center;
-
-    background-color: #fff;
-
-    height: 2rem;
-
-    padding-top: 1rem;
 }
 
-.bardivs {
-    background-color: #918f8f;
-    color: #353535;
-    font-weight: bolder;
+.apple {
+    background-color: red;
+}
+
+.snake {
+    background-color: green;
+}
+
+.buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: left;
+
+    width: 100%;
+    height: 100%;
+
     font-size: 1.2rem;
 
-    margin: 5rem;
+    padding-right: 5rem;
+}
 
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+.navbtn {
+    display: flex;
 
-    border-radius: 2px;
+    border-color: #5b749f;
+
+    border-style: solid;
+    border-width: 0.25rem;
+
+    padding: 1rem;
+
+    border-radius: 0.25rem;
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    width: 10rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.navbtn:hover {
+    background-color: #5b749f;
+}
+
+.snakewrap {
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.snakearea {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, 2rem);
+    grid-template-rows: repeat(auto-fill, 2rem);
+
+    margin-bottom: 2rem;
+
+    height: 100%;
+    width: 100%;
+}
+
+.cell {
+	width: 100%;
+	height: 100%;
+
+    border-color: white;
+    border-style: solid;
+    border-width: 0.1rem;
+
+	background-color: black;
+
+	visibility: hidden;
+}
+
+.cpp {
+    margin: 0.5rem;
+    margin-left: 0;
 }
 
 a {
+    color: inherit;
+    font-weight: bold;
     text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.projects {
+    display: grid;
+
+    margin-top: 4rem;
+
+    align-items: center;
+    justify-content: space-between;
+
+    grid-template-columns: repeat(2, 50rem);
+    grid-template-rows: repeat(2, 50rem);
+
+    row-gap: 7rem;
+}
+
+.projectitem {
+    width: 100%;
+    height: 100%;
+
+    padding: 2rem;
+    font-size: medium;
+    font-weight: bold;
+
+    background-color: #5b749f;
+
+    border-radius: 0.6rem;
 }

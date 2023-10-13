@@ -3,13 +3,41 @@
     <title>Dima Galkin</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src = "snake.js"></script>
   </head>
 
   <body>
-    <div class="bar">
-      <a href="Projects.html"><div class="bardivs">Projects</div></a>
-      <div class="bardivs">CV</div>
-      <div class="bardivs">About</div>
-    </div>
+      <div class = "container">
+          <div class = "navbar">
+              <div class = "hi">
+                  <div>
+                    <h1 style = "margin: 0;">Hi, I'm Dima Galkin</h1>
+                    <h2 class = "cpp">C++ Developer</h2>
+                  </div>
+              </div>
+
+              <div class = "buttons">
+                <a href = "index.html" class = "navbtn">Home</a>
+                <a href = "Projects.html" class = "navbtn">Projects</a>
+                <a href = "CV.html" class = "navbtn">CV</a>
+                <a href = "About.html" class = "navbtn">About</a>
+            </div>
+          </div>
+      </div>
+
+      <div id = "snakearea" class = "snakearea">
+      </div>
   </body>
-  </html>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let GameInstance = new SnakeGame();
+		GameInstance.play();
+  });
+
+  window.onresize = function(event) {
+    console.log("Resizing");
+    location.reload();
+  };
+</script>
