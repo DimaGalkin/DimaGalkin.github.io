@@ -1,43 +1,114 @@
 <html>
-  <head>
-    <title>Dima Galkin</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src = "snake.js"></script>
-  </head>
+    <head>
+        <title>Dima Galkin</title>
+        
+        <link rel="stylesheet" href="index.css">
+        <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 
-  <body>
-      <div class = "container">
-          <div class = "navbar">
-              <div class = "hi">
-                  <div>
-                    <h1 style = "margin: 0;">Hi, I'm Dima Galkin</h1>
-                    <h2 class = "cpp">C++ Developer</h2>
-                  </div>
-              </div>
+    <body>
+        <div class = "back"></div>
+        
+        <div class = "navbar">
+            <div onclick="scrollhome()" class = "sectionlink">Home</div>
+            <div>|</div>
+            <div onclick="scrollabout()" class = "sectionlink">About</div>
+            <div>|</div>
+            <div onclick="scrollprojects()" class = "sectionlink">Projects</div>
+            <div>|</div>
+            <div onclick="scrollmore()" class = "sectionlink">More</div>
+        </div>
 
-              <div class = "buttons">
-                <a href = "index.html" class = "navbtn">Home</a>
-                <a href = "Projects.html" class = "navbtn">Projects</a>
-                <a href = "CV.html" class = "navbtn">CV</a>
-                <a href = "About.html" class = "navbtn">About</a>
+        <div class = "center">
+        <div class = "pagesplit glp">
+            <div class = "mainlanding">
+                <div class = "cen">
+                    <div class = "titlename">
+                        <div class = "ftitle">DIMA</div>
+                        <div class = "stitle">GALKIN</div>
+                    </div>
+                </div>
+
+                <div class = "desctext">Student & Developer</div>
             </div>
-          </div>
-      </div>
 
-      <div id = "snakearea" class = "snakearea">
-      </div>
-  </body>
+            <div class = "about gpd">
+                <div class = "heading1">Hi, I'm Dima.</div>
+                <div class = "heading2">I'm a UK college student and a developer.</div>
+                
+                <div class = "mockup-code" style="z-index: -1;">
+                    <pre data-prefix="1"><code><b style = "color: rgb(255, 255, 255);">cat aboutme.txt</b></code></pre>
+                    <pre data-prefix="" class="text-success"><code>&#x2022; Developed everything from Web to Low level electronics to Blockchain </code></pre>
+                    <pre data-prefix="" class="text-success"><code>&#x2022; Programming for 3 years </code></pre>
+                    <pre data-prefix="" class="text-success"><code>&#x2022; Languages: Python, C++, Javascript </code></pre>
+                    <pre data-prefix="" class="text-success"><code>&#x2022; Running [NAME] Company with [CAMERONBALL.com] </code></pre>
+                    <pre data-prefix=""><code> </code></pre>
+                    <pre data-prefix=""><code> </code></pre>
+                    <pre data-prefix="2"><code><b style = "color: rgb(255, 255, 255);">cat favproject.txt</b></code></pre>
+                    <p data-prefix="" class="text-success pl-[3.75rem] pr-[3.75rem]"><code>My favourite project has to be the one where I designed a 16 bit computer from intergrated circuits in logisim. As there is so little documentation on doing this all you have to go off is theory and intuition. This is what made the project so fun. The problem solving was very challenging but after a couple afternoons, there it was, a working simulation. Now the challenge was getting code to run on it. (Time to code a custom compiler...).</code></pre>
+                    <pre data-prefix=""><code> </code></pre>
+                    <div class = "extraabout">
+                        <pre data-prefix=""><code> </code></pre>
+                        <pre data-prefix="3"><code><b style = "color: rgb(255, 255, 255);">./virus.exe</b></code></pre>
+                        <pre data-prefix=""><code>Detecting Passwords </code></pre>
+                        <pre data-prefix="" class="text-success"><code>Found [1] Password(s)</code></pre>
+                        <pre data-prefix=""><code>Cracking Hashes</code></pre>
+                        <pre data-prefix="" class="text-success"><code>Password to <b style="color: green;">goverment.secrets</b> is <b style="color: green;">password123</b>.</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "projects gpd">
+                <div class = "projectssection">
+                    <div class = "pgt">&lt;Projects&gt;</div>
+                    <div class = "pgst">Here are a few of the things I have built:</div>
+                </div>
+            </div>
+
+            <div class = "contactlinks">
+
+            </div>
+
+            <div class = "footer">
+
+            </div>
+        </div>
+        </div>
+    </body>
 </html>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let GameInstance = new SnakeGame();
-		GameInstance.play();
-  });
+    function rtp(rem) {    
+        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
 
-  window.onresize = function(event) {
-    console.log("Resizing");
-    location.reload();
-  };
+    function scrollhome() {
+        document.body.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollabout() {
+        document.body.scrollTo({
+            top: document.querySelector(".about").offsetTop - rtp(5),
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollprojects() {
+        document.body.scrollTo({
+            top: document.querySelector(".projects").offsetTop - rtp(5),
+            behavior: 'smooth'
+        });
+    }
+
+    function scrollmore() {
+        document.body.scrollTo({
+            top: document.querySelector(".contactlinks").offsetTop - rtp(5),
+            behavior: 'smooth'
+        });
+    }
 </script>
