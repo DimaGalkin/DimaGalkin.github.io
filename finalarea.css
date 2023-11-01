@@ -1,7 +1,7 @@
 .finalarea {
     display: grid;
 
-    grid-template-rows: 1fr 4fr 10fr 1fr;
+    grid-template-rows: 2fr 12rem 10fr 0.5fr;
 
     width: 100vw;
     height: 100vh;
