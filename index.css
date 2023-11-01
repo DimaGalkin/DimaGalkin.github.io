@@ -18,6 +18,8 @@ html, body {
     background-color: black;
 
     overflow-x: hidden;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 .ico {
