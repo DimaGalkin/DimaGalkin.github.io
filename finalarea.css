@@ -63,6 +63,8 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 1.5vh;
     color: white;
+
+    gap: 10vw;
 }
 
 .timeline {
