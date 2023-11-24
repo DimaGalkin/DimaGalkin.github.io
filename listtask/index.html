@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+
+        <script src = "index.js"></script>
+    </head>
+
+    <script>
+        let list = new ListExample([1, 2, 3, 4]);
+    </script>
+
+    <body>
+        <div class = "mainsection">
+            <div class = "title">
+                <div class = "word">Lists</div>
+            </div>
+
+            <div class = "textarea">
+                <div class = "texttitle">
+                    What is a list?
+                </div>
+
+                <div class = "textbody">
+                    A list is an <b>immutable data structure</b> that is used to store multiple values. Lists are also indexed, meaning that each element in the list has a unique index that can be used to access the element. Lists are also iterable, meaning that you can iterate through each element in the list. Lists are also heterogenous, meaning that the <b>elements in the list can be of different types</b>. Lists are also dynamic, meaning that the size of the list can change. Lists are also recursive, meaning that a list can contain other lists.
+                </div>
+
+                <div class = "texttitle">
+                    What are common operations on lists?
+                </div>
+
+                <div class = "textbody">
+                    It is common for lists to have the following operations:
+                    <ul>
+                        <li>isEmpty()</li>
+                        <li>length()</li>
+                        <li>get(index)</li>
+                        <li>set(index, value)</li>
+                        <li>add(value)</li>
+                        <li>remove(index)</li>
+                        <li>contains(value)</li>
+                    </ul>
+                </div>
+
+                <div class = "texttitle">
+                    Try out some operations on the list below!
+                </div>
+
+                <div class = "buttonwrapper">
+                    <input type = "text" class = "input" id = "input" placeholder = "Enter a number">
+                    <button class = "button" onclick = "list.add(document.getElementById('input').value)">Add</button>
+                    <button class = "button" onclick = "list.remove(document.getElementById('input').value)">Remove</button>
+                    <button class = "button" onclick = "list.sort()">Sort</button>
+                    <button class = "button" onclick = "list.randomise()">Randomise</button>
+                </div>
+
+                <div class = "list" id = "list">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
