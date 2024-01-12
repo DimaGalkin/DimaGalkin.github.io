@@ -2,11 +2,11 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 // global vars
-import { scene, camera } from "/warehouse/Game.js";
+import { scene, camera } from "/warehouse/GameName/Game.js";
 
 // custom modules
-import Player from "./warehouse/Player.js";
-import Enemy from "./warehouse/Enemy.js";
+import Player from "./warehouse/GameName/Player.js";
+import Enemy from "./warehouse/GameName/Enemy.js";
 
 class Game {
     constructor() {
