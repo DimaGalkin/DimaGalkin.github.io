@@ -110,7 +110,7 @@ class Gun {
     init(listener) {
         const loader = new GLTFLoader();
 
-        loader.load( 'fn402/scene.gltf',  gltf => {
+        loader.load( '/warehouse/fn402/scene.gltf',  gltf => {
             this.gunModel = gltf.scene;
 
             this.gunModel.position.set(0.05, -0.175, 0);
