@@ -1,7 +1,7 @@
 import { PointerLockControls } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/PointerLockControls.js";
 
 // global vars
-import { camera } from "/warehouse/Game.js";
+import { camera } from "./warehouse/Game.js";
 
 class FPSControls {
     constructor(state) {
