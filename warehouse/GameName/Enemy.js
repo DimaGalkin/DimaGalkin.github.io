@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { FBXLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/FBXLoader.js";
 
 // global vars
-import { scene } from "./Game.js";
+import { scene } from "/warehouse/Game.js";
 
 class Enemy {
     constructor(state, listener, position) {
