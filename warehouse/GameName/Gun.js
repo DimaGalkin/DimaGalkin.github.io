@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 // global vars
-import { scene, camera } from "./warehouse/Game.js";
+import { scene, camera } from "./warehouse/GameName/Game.js";
 
 class Gun {
     constructor(state, listener) {
