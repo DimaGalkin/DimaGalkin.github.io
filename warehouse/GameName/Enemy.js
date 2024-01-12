@@ -36,7 +36,7 @@ class Enemy {
 
     init(listener) {
         let loader = new FBXLoader();
-        loader.load( 'swat/swat.fbx', ( gltf ) => {
+        loader.load( '/warehouse/swat/swat.fbx', ( gltf ) => {
             this.model = gltf;
 
             this.model.position.set(this.position.x, this.position.y, this.position.z);
