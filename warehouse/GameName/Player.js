@@ -4,8 +4,8 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { scene, camera, renderer } from "./Game.js";
 
 // custom modules
-import Gun from "/warehouse/Gun.js";
-import FPSControls from "/warehouse/FPSController.js";
+import Gun from "./warehouse/Gun.js";
+import FPSControls from "./warehouse/FPSController.js";
 
 class Player {
     constructor(state, listener) {
