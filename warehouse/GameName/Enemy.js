@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { FBXLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/FBXLoader.js";
 
 // global vars
-import { scene } from "/warehouse/Game.js";
+import { scene } from "./warehouse/Game.js";
 
 class Enemy {
     constructor(state, listener, position) {
@@ -83,7 +83,7 @@ class Enemy {
         this.sfx.die.setPlaybackRate( 1.75 );
 
         let sfxLoader = new THREE.AudioLoader();
-        sfxLoader.load( '/warehouse/sfx/fall.mp3', buffer => {
+        sfxLoader.load( './warehouse/sfx/fall.mp3', buffer => {
             this.sfx.die.setBuffer( buffer );
         });
     }
