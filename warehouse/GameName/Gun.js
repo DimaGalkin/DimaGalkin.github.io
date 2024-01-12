@@ -153,21 +153,21 @@ class Gun {
             this.sounds.walking.setPlaybackRate( 0.5 );
 
             const audioLoader = new THREE.AudioLoader();
-            audioLoader.load( 'sfx/shot.mp3', buffer => {
+            audioLoader.load( '/warehouse/sfx/shot.mp3', buffer => {
                 this.sounds.shoot.setBuffer( buffer );
             });
 
-            audioLoader.load( 'sfx/reload.mp3', buffer => {
+            audioLoader.load( '/warehouse/sfx/reload.mp3', buffer => {
                 this.sounds.reload.setBuffer( buffer );
             });
 
-            audioLoader.load( 'sfx/background_noise.mp3', buffer => {
+            audioLoader.load( '/warehouse/sfx/background_noise.mp3', buffer => {
                 this.sounds.background.setBuffer( buffer );
                 this.sounds.background.setLoop( true );
                 this.sounds.background.play();
             });
 
-            audioLoader.load( 'sfx/walk.mp3', buffer => {
+            audioLoader.load( '/warehouse/sfx/walk.mp3', buffer => {
                 this.sounds.walking.setBuffer( buffer );
                 this.sounds.walking.setLoop( true );
             });
