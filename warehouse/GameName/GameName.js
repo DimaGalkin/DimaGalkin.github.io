@@ -5,8 +5,8 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/
 import { scene, camera } from "/warehouse/Game.js";
 
 // custom modules
-import Player from "/warehouse/Player.js";
-import Enemy from "/warehouse/Enemy.js";
+import Player from "./warehouse/Player.js";
+import Enemy from "./warehouse/Enemy.js";
 
 class Game {
     constructor() {
@@ -50,7 +50,7 @@ class Game {
 
     initScene() {
         let loader = new GLTFLoader();
-        loader.load( 'level/scene.gltf', ( gltf ) => {
+        loader.load( './warehouse/level/scene.gltf', ( gltf ) => {
             this.level = gltf.scene;
 
             this.level.traverse( function ( child ) {
