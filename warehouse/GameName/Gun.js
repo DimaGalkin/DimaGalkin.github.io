@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 // global vars
-import { scene, camera } from "/warehouse/Game.js";
+import { scene, camera } from "./warehouse/Game.js";
 
 class Gun {
     constructor(state, listener) {
@@ -110,7 +110,7 @@ class Gun {
     init(listener) {
         const loader = new GLTFLoader();
 
-        loader.load( '/warehouse/fn402/scene.gltf',  gltf => {
+        loader.load( './warehouse/fn402/scene.gltf',  gltf => {
             this.gunModel = gltf.scene;
 
             this.gunModel.position.set(0.05, -0.175, 0);
@@ -153,21 +153,21 @@ class Gun {
             this.sounds.walking.setPlaybackRate( 0.5 );
 
             const audioLoader = new THREE.AudioLoader();
-            audioLoader.load( '/warehouse/sfx/shot.mp3', buffer => {
+            audioLoader.load( './warehouse/sfx/shot.mp3', buffer => {
                 this.sounds.shoot.setBuffer( buffer );
             });
 
-            audioLoader.load( '/warehouse/sfx/reload.mp3', buffer => {
+            audioLoader.load( './warehouse/sfx/reload.mp3', buffer => {
                 this.sounds.reload.setBuffer( buffer );
             });
 
-            audioLoader.load( '/warehouse/sfx/background_noise.mp3', buffer => {
+            audioLoader.load( './warehouse/sfx/background_noise.mp3', buffer => {
                 this.sounds.background.setBuffer( buffer );
                 this.sounds.background.setLoop( true );
                 this.sounds.background.play();
             });
 
-            audioLoader.load( '/warehouse/sfx/walk.mp3', buffer => {
+            audioLoader.load( './warehouse/sfx/walk.mp3', buffer => {
                 this.sounds.walking.setBuffer( buffer );
                 this.sounds.walking.setLoop( true );
             });
