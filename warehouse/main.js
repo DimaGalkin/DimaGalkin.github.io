@@ -1,4 +1,4 @@
-import Game from "/warehouse/GameName/GameName.js";
+import Game from "./warehouse/GameName/GameName.js";
 
 const game = new Game();
 
