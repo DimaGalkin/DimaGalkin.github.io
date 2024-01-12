@@ -83,7 +83,7 @@ class Enemy {
         this.sfx.die.setPlaybackRate( 1.75 );
 
         let sfxLoader = new THREE.AudioLoader();
-        sfxLoader.load( 'sfx/fall.mp3', buffer => {
+        sfxLoader.load( '/warehouse/sfx/fall.mp3', buffer => {
             this.sfx.die.setBuffer( buffer );
         });
     }
