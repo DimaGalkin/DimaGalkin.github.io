@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+.title.waveanim {
+    width: 100vw;
+    margin-top: 0.6em;
+    height: max-content;
+    margin-bottom: 0.6em;
+}
+
+.title.waveanim b {
+    width: max-content;
+    display: inline-block;
+    animation: wave-text 3s ease-in-out infinite;
+}
+
+b {
+    margin: -0.7rem;
+}
+
+.title.waveanim {
+    width: 100%;
+    b:nth-of-type(1){ animation-delay: 0.0s; }
+    b:nth-of-type(2){ animation-delay: 0.1s; }
+    b:nth-of-type(3){ animation-delay: 0.2s; }
+    b:nth-of-type(4){ animation-delay: 0.3s; }
+    b:nth-of-type(5){ animation-delay: 0.4s; }
+    b:nth-of-type(6){ animation-delay: 0.5s; }
+    b:nth-of-type(7){ animation-delay: 0.6s; }
+    b:nth-of-type(8){ animation-delay: 0.7s; }
+    b:nth-of-type(9){ animation-delay: 0.8s; }
+    b:nth-of-type(10){ animation-delay: 0.9s; }
+    b:nth-of-type(11){ animation-delay: 1.0s; }
+}
+
+input {
+    height: 4rem;
+    width: 24rem;
+
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    border: #7873b5 2px solid;
+}
+
+@keyframes wave-text{
+    00%{
+        transform: translateY(0em);
+    }
+    50%{
+        transform: translateY(-0.5em);
+    }
+    100%{
+        transform: translateY(0em);
+    }
+}
+
+.html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+}
+
+.mainGroup {
+    display: grid;
+    grid-template-rows: 0.25fr 0.75fr;
+    height: 75%;
+    width: 100vw;
+    gap: 10rem;
+}
+
+table {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+
+    width: max-content;
+
+    overflow: scroll;
+    
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+
+    border-radius: 15px;
+}
+
+.title {
+    text-align: center;
+
+    width: 100vw;
+    height: 100%;
+
+    font-size: 3.5vw;
+
+    font-weight: bolder;
+}
+
+tr {
+    width: 100%;
+    align-self: center;
+    text-align: center;
+}
+
+.gameOver {
+    display: none;
+    padding: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+}
+
+.btng {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    font-weight: bolder;
+    font-size: large;
+
+    align-self: center;
+
+    border-radius: 20px;
+
+    height: 5rem;
+    width: 15rem;
+
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(7px);
+}
+
+.button:hover {
+    cursor: grab;
+    filter: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+}
+
+.buttonGroup {
+    display: flex;
+
+    height: 80%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: none;
+}

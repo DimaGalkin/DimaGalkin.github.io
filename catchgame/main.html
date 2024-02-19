@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Catch Game!</title>
+        
+        <link rel="stylesheet" href="main.css">
+
+        <script src="sketch.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/items.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    </head>
+
+    <script>
+        function start() {
+            document.querySelector(".start").style.display = "none";
+            document.querySelector('canvas').style.display = "block";
+            game.draw = () => game.drawGame();
+        }
+
+        function settings() {}
+
+        function gameOver() {
+            game = new Game();
+
+            document.querySelector(".gameOver").style.display = "none";
+            document.querySelector(".start").style.display = "block";
+
+            game.draw = () => game.drawStart();
+        }
+    </script>
+
+    <body>
+        <div class = "start">
+            <div class = "mainGroup">
+                <div class = "title waveanim">
+                    <b>C</b>
+                    <b>a</b>
+                    <b>t</b>
+                    <b>c</b>
+                    <b>h</b>
+                    <b>&nbsp;</b>
+                    <b>G</b>
+                    <b>a</b>
+                    <b>m</b>
+                    <b>e</b>
+                    <b>!</b>
+                </div>
+
+                <div class = "buttonGroup">
+                    <input type="text" id="uname" placeholder="Enter Your Name:"></input>
+                    <div class="button" onclick="start()">Start Game</div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "gameOver">
+            <div class = "title waveanim">
+                <b>G</b>
+                <b>a</b>
+                <b>m</b>
+                <b>e</b>
+                <b>&nbsp;</b>
+                <b>O</b>
+                <b>v</b>
+                <b>e</b>
+                <b>r</b>
+                <b>!</b>
+            </div>
+            
+            <div class="btng">
+                <table id = "scoretable">
+                </table>
+
+                <div class="button" onclick="gameOver()">Play Again</div>
+            </div>
+        </div>
+    </body>
+</html>
