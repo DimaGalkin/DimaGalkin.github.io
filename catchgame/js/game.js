@@ -1,6 +1,12 @@
-/*
-*  @class: Game
-*  @description: This class is responsible for the game logic and drawing.
+/**
+ * @authors Dima & Rose
+ * @date    2024-02-19
+ * @description This file contains the game class which encapsulates the player and item classes and manages core game logic.
+*/
+
+/**
+*  @class Game
+*  @description This class is responsible for the game logic and drawing.
 */
 class Game {
     constructor() {
@@ -10,7 +16,7 @@ class Game {
         this.item = undefined;
 
         // player character
-        this.player = new Player(innerWidth / 2, innerHeight - block_width/2);
+        this.player = new Player(innerWidth / 2, innerHeight - BLOCK_WIDTH/2);
 
         // amount of missed items
         this.missed = 0;
@@ -24,9 +30,14 @@ class Game {
         // set draw function to start screen
         this.draw = this.drawStart;
     }
-  
+
+    /**
+     * @description Populates the items array with good and bad items
+     * @param {int} good number of good items 
+     * @param {int} bad number of bad items 
+     */
     populateItems(good, bad) {
-        good = Math.ceil(good / 3);
+        good = Math.ceil(good / 3); // good items are appended in groups of 3
 
         // generate all good items
         for (let i = 0; i < good; i++) {
@@ -40,12 +51,20 @@ class Game {
             this.items.push(new Grenade());
         }
     }
-  
+
+    /**
+     * @description Randomly selects an item from the items array and assigns it to the item property
+     * @returns {void}
+    */
     cycleItem() {
-        // randomly select an index and indexes the items array
         this.item = this.items[Math.floor(Math.random() * this.items.length)];
     }
   
+    /**
+     * @description Checks for collisions between the player and items then checks if items are off the screen
+     * @param {array} items (array of items to check for collision with player)
+     * @returns {void} void
+    */
     intersects(items) {
         // check if items and player intersect, method returns true if a bad item is caught
         let caughtBadItem = this.player.intersects(items, this.cycleItem.bind(this));
@@ -58,7 +77,7 @@ class Game {
         }
 
         items.forEach(element => {
-            if (element.position.y > innerHeight - block_width/2) {
+            if (element.position.y > innerHeight - BLOCK_WIDTH/2) {
                 element.reset();
                 this.cycleItem();
                 
@@ -70,30 +89,38 @@ class Game {
         });
     }
   
-    keys() {
-        if (keymap["ArrowLeft"]) {
+    /**
+     * @description Tracks the parseKeymap pressed by the player and moves the player accordingly
+     * @returns {void} void
+     */
+    parseKeymap() {
+        if (KEYMAP["ArrowLeft"]) {
             // if the player is within the bounds of the screen, move the player to the left
-            if (this.player.position.x - character_width/2 > 0) {
+            if (this.player.position.x - CHARACTER_WIDTH/2 > 0) {
                 this.player.prev_position.x = this.player.position.x;
                 this.player.position.x -= 350 * (1 / frameRate());
             } else {
                 this.player.prev_position.x = this.player.position.x;
-                this.player.position.x = character_width/2;
+                this.player.position.x = CHARACTER_WIDTH/2;
             }
         }
 
-        if (keymap["ArrowRight"]) {
+        if (KEYMAP["ArrowRight"]) {
             // if the player is within the bounds of the screen, move the player to the right
-            if (this.player.position.x + character_width/2 < innerWidth) {
+            if (this.player.position.x + CHARACTER_WIDTH/2 < innerWidth) {
                 this.player.prev_position.x = this.player.position.x;
                 this.player.position.x += 350 * (1 / frameRate());
             } else {
                 this.player.prev_position.x = this.player.position.x;
-                this.player.position.x = innerWidth - character_width/2;
+                this.player.position.x = innerWidth - CHARACTER_WIDTH/2;
             }
         }
     }
   
+    /**
+     * @description Checks if the game should end and ends the game if the player has missed too many items
+     * @returns {void} void
+     */
     logic() {
         // if the player misses 5 items, end the game
         if (this.missed >= this.max_missed) {
@@ -102,6 +129,10 @@ class Game {
         }
     }
   
+    /**
+     * @description Displays the health bar of the player (number of items allowed to be missed before game ends)
+     * @returns {void} void
+    */
     displayHealth() {
         let max_bar_width = (3*(innerWidth/4)) - (innerWidth/4);
         // calculate the width of the health bar based on the number of missed items
@@ -122,18 +153,27 @@ class Game {
         pop();
     }
 
+    /**
+     * @description Displays the number of items caught by the player
+     * @returns {void} void
+    */ 
     displayCaught() {
         textSize(50);
-        text(this.player.caught, 50, 100);        
+        text(this.player.caught, 50, 100);
     }
   
+    /**
+     * @description Draws the game state
+     * @returns {void} void
+    */
     drawGame() {
         // draw the background image
-        background(bg);
+        background(BG);
 
         this.logic(); // game logic
-        this.keys(); // tracks input
+        this.parseKeymap(); // tracks input
         this.intersects(this.items); // checks for collisions
+
         this.displayHealth();
         this.displayCaught();
 
@@ -142,11 +182,19 @@ class Game {
         this.player.draw();
     }
   
+    /**
+     * @description Makes the html of the start screen visible
+     * @returns {void} void
+    */
     drawStart() {
-        // make start screen visible
         document.querySelector(".start").style.display = "flex";
     }
 
+    /**
+     * @description Sorts pairs of [name, score] in descending order by score value
+     * @param {*} items array of items to sort
+     * @returns {void} void
+     */
     sort(items) {
         for (let i = 0; i < items.length; ++i) {
             let key = items[i];
@@ -161,29 +209,30 @@ class Game {
         }
     }
 
+    /**
+     * @description Manages the leader board by adding the player's score to the leader board and displaying the leader board
+     * @returns {void} void
+    */
     manageLeaderBoard() {
-        let highscore;
-        let got_hs = false;
-        let scores = localStorage.getItem("scores");
-        let uname = document.getElementById("uname").value;
+        let scores = localStorage.getItem("scores"); // retrieve scores from local storage
+        let uname = document.getElementById("uname").value; // get the username from the input field
 
+        // if scores was not stored in local storage, create a new array with the player's score
         if (scores == null) {
-            highscore = this.player.caught;
-            scores = [[uname, highscore]];
-            got_hs = true;
-        } else {
+            scores = [[uname, this.player.caught]];
+        } else { // if scores was stored in local storage, parse the string into an array and add the player's score
             scores = JSON.parse(scores);
 
             scores.push([uname, this.player.caught]);
-            this.sort(scores);
 
-            if (this.player.caught == scores[0][1]) {
-                got_hs = true;
-            }
+            // sort the scores in descending order
+            this.sort(scores);
         }
 
+        // store the scores in local storage
         localStorage.setItem("scores", JSON.stringify(scores));
 
+        // generate the html for the score table
         let table_content = `<tr>
                                 <th>Name</th>
                                 <th>Score</th>
@@ -198,14 +247,15 @@ class Game {
             table_content += row;
         }
 
+        // insert the html into the score table
         document.getElementById("scoretable").innerHTML = table_content;
-
-        glob_is_hs = got_hs;
     }
   
+    /**
+     * @description Makes the html of the game over screen visible and hides the p5 canvas
+     * @returns {void} void
+    */
     drawGameOver() {
-        // make game over screen visible
-        // hide p5 canvas
         document.querySelector(".gameover").style.display = "flex";
         document.querySelector('canvas').style.display = "none";
     }

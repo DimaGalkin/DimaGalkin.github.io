@@ -2,7 +2,7 @@
     <head>
         <title>Catch Game!</title>
         
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="index.css">
 
         <script src="sketch.js"></script>
         <script src="js/game.js"></script>
@@ -13,22 +13,41 @@
     </head>
 
     <script>
-        function start() {
-            document.querySelector(".start").style.display = "none";
-            document.querySelector('canvas').style.display = "block";
-            game.draw = () => game.drawGame();
+        function validateInput() {
+            var uname = document.getElementById("uname").value;
+            
+            if (uname.length < 1 || uname.length > 15) {
+                alert("Username must be between 1 and 15 characters long!");
+                return false;
+            }
+
+            return true;
         }
 
-        function settings() {}
+        function start() {
+            if (!validateInput()) {
+                return;
+            }
+
+            document.querySelector(".start").style.display = "none";
+            document.querySelector('canvas').style.display = "block";
+            GAME.draw = () => GAME.drawGame();
+        }
 
         function gameOver() {
-            game = new Game();
+            GAME = new Game();
 
             document.querySelector(".gameOver").style.display = "none";
             document.querySelector(".start").style.display = "block";
 
-            game.draw = () => game.drawStart();
+            GAME.draw = () => GAME.drawStart();
         }
+
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) || navigator.userAgent.match(/(Android)/)) {
+            alert("This game is not supported on mobile devices!");
+            while (true) {}
+        }
+
     </script>
 
     <body>
@@ -49,8 +68,10 @@
                 </div>
 
                 <div class = "buttonGroup">
-                    <input type="text" id="uname" placeholder="Enter Your Name:"></input>
-                    <div class="button" onclick="start()">Start Game</div>
+                    <div class="aligner">
+                        <input type="text" id="uname" placeholder="Enter Your Name:"></input>
+                        <div class="button" onclick="start()">Start Game</div>
+                    </div>
                 </div>
             </div>
         </div>

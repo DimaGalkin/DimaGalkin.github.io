@@ -1,30 +1,33 @@
-// stores keys pressed by the player
-let keymap = {};
+/**
+ * @authors Rose
+ * @date    2024-02-19
+ * @description This file contains boilerplate code for the game and default p5.js functions.
+*/
 
-let glob_scores = undefined;
-let glob_is_hs = false;
+// stores keys pressed by the player
+let KEYMAP = {};
 
 // game class and background image
-let game = undefined;
-let bg = undefined;
+let GAME = undefined;
+let BG = undefined;
 
 // dimentions of items
-let block_width = 50;
-let block_height = 50;
+let BLOCK_WIDTH = 50;
+let BLOCK_HEIGHT = 50;
 
 // dimensions of player
-let character_height = 80;
-let character_width = 80;
+let CHARACTER_HEIGHT = 80;
+let CHARACTER_WIDTH = 80;
 
 // event listeners for key presses
 onkeydown = onkeyup = function(e){
-  keymap[e.key] = e.type == 'keydown';
+  KEYMAP[e.key] = e.type == 'keydown';
 }
 
 // event listener for window resize
 window.onresize = function() {
   resizeCanvas(innerWidth, innerHeight);
-  game.player.position.y = innerHeight - character_height/1.4;
+  GAME.player.position.y = innerHeight - CHARACTER_HEIGHT/1.4;
 }
 
 // run once before the game starts
@@ -33,18 +36,18 @@ function setup() {
   frameRate(60);
 
   // load background image
-  bg = loadImage("assets/background.jpg");
+  BG = loadImage("assets/background.jpg");
 
   // create canvas
   createCanvas(innerWidth, innerHeight);
   rectMode(CENTER);
 
   // create game
-  game = new Game();
+  GAME = new Game();
 }
 
 // run every frame
 function draw() {
   // draw game state
-  game.draw();
+  GAME.draw();
 }

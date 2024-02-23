@@ -1,9 +1,16 @@
-/*
-*  @class: Item
-*  @description: Is responsible for tracking movment of the item and drawing it on the p5 canvas
+/**
+ * @authors Rose & Dima
+ * @date    2024-02-10
+ * @description This file contains the item class which is resonsible for tracking the movement
+ * of the item and drawing it on the p5 canvas. It also contains the classes for the different types of items.
+*/
+
+/**
+*  @class Item
+*  @description Is responsible for tracking movment of the item and drawing it on the p5 canvas
 */
 class Item {
-    constructor(imageUri) {
+    constructor(image_uri) {
         /*
         * Initialise the movement properties of the item
         */
@@ -14,7 +21,17 @@ class Item {
         /*
         * Load the image of the item (once when it is created, not every frame)
         */
-        this.image = loadImage(imageUri);
+        this.image = loadImage(image_uri);
+
+        // check if the character images were loaded
+        if (this.image == undefined || this.image == null) {
+            push();
+            textAlign(CENTER);
+            text("Failed to load character images", 100, 100);
+            pop();
+            
+            throw new Error("Failed to load character image");
+        }
 
         /*
         * Initialise the item's position and movement properties
@@ -22,6 +39,10 @@ class Item {
         this.reset();
     }
   
+    /**
+     * @description Resets the position and movement properties of the item
+     * @returns {void} void
+    */
     reset() {
         /*
         * x : x position is a maximum distance of an 1/3 away from the centre of the screen 
@@ -29,33 +50,30 @@ class Item {
         */
         this.position = {
             x: innerWidth/2 + random(-innerWidth/3, innerWidth/3),
-            y: block_width / 2
+            y: BLOCK_WIDTH / 2
         };
 
-        /*
-        * x : no velocity in the x direction
-        * y : y velocity is a random value between 0.5 and 1
-        */
         this.velocity = {
             x: 0,
             y: 50
         };
 
-        /*
-        * x : no acceleration in the x direction
-        * y : y acceleration is a random value between 0.0005 and 0.00075
-        */
         this.acceleration = {
             x: 0,
             y: 98
         };
     }
   
+
+    /**
+     * @description Draws the item on the p5 canvas based on the internal state of the item
+     * @returns {void} void
+    */ 
     draw() {
         /*
         * Draw the item on the p5 canvas using p5's image function
         */
-        image(this.image, this.position.x, this.position.y, block_width, block_width);
+        image(this.image, this.position.x, this.position.y, BLOCK_WIDTH, BLOCK_WIDTH);
 
         /*
         * increment the position of the item by the velocity depending on the frame rate

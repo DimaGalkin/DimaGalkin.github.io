@@ -164,6 +164,20 @@ tr {
     backdrop-filter: blur(7px);
 }
 
+.aligner {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    width: max-content;
+    height: 100%;
+
+    gap: 7rem;
+}
+
 .button:hover {
     cursor: grab;
     filter: none;
@@ -173,6 +187,8 @@ tr {
 
 .buttonGroup {
     display: flex;
+
+    margin-top: 5rem;
 
     height: 80%;
     display: grid;
